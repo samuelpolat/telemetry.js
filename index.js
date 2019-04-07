@@ -27,10 +27,11 @@ exports.trackVisit = function (header, ip) {
     //Client location
     var geo = geoip.lookup(ip);
     var country = geo['country'];
+    var region = geo['region'];
     var city = geo['city'];
 
     //Track visit
-    var visit = [browser, os, device, country, city, timestamp];
+    var visit = [browser, os, device, country, region, city, timestamp];
     console.log(visit);
 
   } else {
