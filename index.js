@@ -20,10 +20,7 @@ exports.trackVisit = function (header) {
     var device = client.getPlatformType();
 
     //Track visit
-    var json = '{"browser": browser, "os": os, "device": device}';
-    var visit = JSON.parse(json.trim());
-
-    console.log(JSON.stringify(visit));
+    console.log(browser);
 
   } else {
 
