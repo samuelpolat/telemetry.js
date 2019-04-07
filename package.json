@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/samuelpolat/telemetry.js/issues"
   },
-  "homepage": "https://github.com/samuelpolat/telemetry.js#readme"
+  "homepage": "https://github.com/samuelpolat/telemetry.js#readme",
+  "dependencies": {
+    "bowser": "^2.2.0",
+    "isbot": "^2.2.1"
+  }
 }
