@@ -38,14 +38,7 @@ exports.trackVisit = function(req) {
         var city = geo['city'];
 
         //Add timestamp
-        var date = new Date();
-        yr = date.getUTCFullYear();
-        mo = date.getUTCMonth();
-        dy = date.getUTCDate();
-        hr = date.getUTCHours();
-        mn = date.getUTCMinutes();
-        var d = [yr, mo, dy, hr, mn];
-        var timestamp = JSON.parse(d);
+        var timestamp = Math.floor(Date.now() / 1000);
 
         //Track visit
         db.get('visits')
