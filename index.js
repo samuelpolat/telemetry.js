@@ -38,13 +38,13 @@ exports.trackVisit = function(req) {
         var city = geo['city'];
 
         //Add timestamp
-        var date = new Date();
+        /* var date = new Date();
         yr = date.getUTCFullYear();
         mo = date.getUTCMonth()+1;
         dy = date.getUTCDate();
         hr = date.getUTCHours();
         mn = date.getUTCMinutes();
-        var timestamp = {"y": yr, "m": mo, "d": dy, "hr": hr, "mn": mn};
+        var timestamp = {"y": yr, "m": mo, "d": dy, "hr": hr, "mn": mn}; */
 
         //Track visit
         db.get('visits')
@@ -55,7 +55,7 @@ exports.trackVisit = function(req) {
                 country: country,
                 region: region,
                 city: city,
-                timestamp: timestamp
+                // timestamp: timestamp
             })
             .write()
 
