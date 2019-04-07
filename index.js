@@ -20,7 +20,8 @@ exports.trackVisit = function (header) {
     var device = client.getPlatformType();
 
     //Track visit
-    console.log(browser);
+    var visit = [broswer, os, device];
+    console.log(visit);
 
   } else {
 
