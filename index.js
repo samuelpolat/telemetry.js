@@ -6,6 +6,12 @@ const geoip = require('geoip-lite');
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 
+const adapter = new FileSync('visits.json')
+const db = low(adapter)
+
+db.defaults({ visits: [], count: 0 })
+  .write()
+
 exports.trackVisit = function (req) {
 
   var header = req.headers;
@@ -23,7 +29,6 @@ exports.trackVisit = function (req) {
     var browser = client.getBrowser();
     var os = client.getOS();
     var device = client.getPlatformType();
-    var timestamp = Math.floor(Date.now() / 1000);
 
     //Client location
     var geo = geoip.lookup(ip);
@@ -31,10 +36,24 @@ exports.trackVisit = function (req) {
     var region = geo['region'];
     var city = geo['city'];
 
-    //Track visit
-    var visit = [browser, os, device, country, region, city, timestamp];
-    console.log(visit);
+    //Add timestamp
+    var timestamp = Math.floor(Date.now() / 1000);
 
+    //Track visit
+    db.get('visits')
+      .push({ browser: browser,
+              os: os,
+              device: device,
+              country: country,
+              region: region,
+              city: city,
+              timestamp: timestamp
+            })
+      .write()
+
+    db.update('count', n => n + 1)
+      .write()
+      
   } else {
 
     // User does not consent to tracking
