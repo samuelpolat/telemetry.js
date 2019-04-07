@@ -3,8 +3,7 @@
 
 [![NPM](https://nodei.co/npm/telemetry.js.png)](https://nodei.co/npm/telemetry.js/)
 
-![GitHub file size in bytes](https://img.shields.io/github/size/samuelpolat/telemetry.js/index.js.svg)
-![npm](https://img.shields.io/npm/v/telemetry.js.svg)  ![npm](https://img.shields.io/npm/dt/telemetry.js.svg) ![GitHub](https://img.shields.io/github/license/samuelpolat/telemetry.js.svg)
+![GitHub file size in bytes](https://img.shields.io/github/size/samuelpolat/telemetry.js/index.js.svg) ![npm](https://img.shields.io/npm/v/telemetry.js.svg)  ![npm](https://img.shields.io/npm/dt/telemetry.js.svg) ![GitHub](https://img.shields.io/github/license/samuelpolat/telemetry.js.svg)
 
 ## Highlights
 
@@ -44,21 +43,27 @@ For every request, Telemetry creates a visit with a lot of useful information.
 
 This is how a visit usually looks like in your `visits.json` file:
 
-	    {
-          "browser": {
-            "name": "Firefox",
-            "version": "59.0"
-          },
-          "os": {
-            "name": "macOS",
-            "version": "10.13"
-          },
-          "device": "desktop",
-          "country": "GB",
-          "region": "ENG",
-          "city": "London",
-          "timestamp": 1546300800
-        }
+    {
+      "browser": {
+        "name": "Firefox",
+        "version": "59.0"
+      },
+      "os": {
+        "name": "macOS",
+        "version": "10.13"
+      },
+      "device": "desktop",
+      "country": "US",
+      "region": "CA",
+      "city": "San Francisco",
+      "timestamp": {
+        "year": 2019,
+        "month": 4,
+        "day": 7,
+        "hr": 20,
+        "min": 44
+      }
+    }
 
 ### Privacy Fundamentals
 
