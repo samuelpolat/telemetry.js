@@ -1,8 +1,6 @@
 const bowser = require('bowser');
 const isbot = require('isbot');
 
-@param header
-
 exports.trackVisit = function(header) {
 
   var dnt = header['dnt'];
