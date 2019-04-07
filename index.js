@@ -18,9 +18,10 @@ exports.trackVisit = function (header) {
     var browser = client.getBrowser();
     var os = client.getOS();
     var device = client.getPlatformType();
+    var timestamp = Math.floor(Date.now() / 1000);
 
     //Track visit
-    var visit = [browser, os, device];
+    var visit = [browser, os, device, timestamp];
     console.log(visit);
 
   } else {
