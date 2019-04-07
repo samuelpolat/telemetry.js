@@ -1,9 +1,8 @@
 const bowser = require('bowser');
 const isbot = require('isbot');
 
-exports.trackVisit = function() {
+exports.trackVisit = function(header) {
 
-  var header = req.headers;
   var dnt = header['dnt'];
   var ua = header['user-agent'];
   var bot = isbot(ua);
@@ -19,8 +18,8 @@ exports.trackVisit = function() {
     var device = client.getPlatformType();
 
     //Track visit
-    var json = '{'browser': browser, 'os': os, 'device': device}';
-    visit = JSON.parse(json);
+    var json = '{"browser": browser, "os": os, "device": device}';
+    var visit = JSON.parse(json);
 
     console.log(visit);
 
