@@ -6,8 +6,9 @@ const geoip = require('geoip-lite');
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 
-exports.trackVisit = function (header, ip) {
+exports.trackVisit = function (req) {
 
+  var header = req.headers;
   var dnt = header['dnt'];
   var ua = header['user-agent'];
   var ip = req.headers['x-forwarded-for'] ? req.headers['x-forwarded-for'].split(',')[0] : req.connection.remoteAddress;
