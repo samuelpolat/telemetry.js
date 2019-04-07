@@ -40,7 +40,7 @@ exports.trackVisit = function(req) {
         //Add timestamp
         var date = new Date();
         yr = date.getUTCFullYear();
-        mo = date.getUTCMonth();
+        mo = date.getUTCMonth()+1;
         dy = date.getUTCDate();
         hr = date.getUTCHours();
         mn = date.getUTCMinutes();
