@@ -22,6 +22,8 @@
   "homepage": "https://github.com/samuelpolat/telemetry.js#readme",
   "dependencies": {
     "bowser": "^2.2.0",
-    "isbot": "^2.2.1"
+    "geoip-lite": "^1.3.7",
+    "isbot": "^2.2.1",
+    "lowdb": "^1.0.0"
   }
 }

@@ -2,11 +2,15 @@
 
 const bowser = require('bowser');
 const isbot = require('isbot');
+const geoip = require('geoip-lite');
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
 
-exports.trackVisit = function (header) {
+exports.trackVisit = function (header, ip) {
 
   var dnt = header['dnt'];
   var ua = header['user-agent'];
+  var ip = ip;
   var bot = isbot(ua);
 
   // Check DNT-header and detect bots
@@ -20,8 +24,13 @@ exports.trackVisit = function (header) {
     var device = client.getPlatformType();
     var timestamp = Math.floor(Date.now() / 1000);
 
+    //Client location
+    var geo = geoip.lookup(ip);
+    var country = geo['country'];
+    var city = geo['city'];
+
     //Track visit
-    var visit = [browser, os, device, timestamp];
+    var visit = [browser, os, device, country, city, timestamp];
     console.log(visit);
 
   } else {
