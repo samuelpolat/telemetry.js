@@ -10,7 +10,7 @@ exports.trackVisit = function (header, ip) {
 
   var dnt = header['dnt'];
   var ua = header['user-agent'];
-  var ip = ip;
+  var ip = req.headers['x-forwarded-for'] ? req.headers['x-forwarded-for'].split(',')[0] : req.connection.remoteAddress;
   var bot = isbot(ua);
 
   // Check DNT-header and detect bots
