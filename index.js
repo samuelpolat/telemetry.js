@@ -40,11 +40,12 @@ exports.trackVisit = function(req) {
         //Add timestamp
         var date = new Date();
         yr = date.getUTCFullYear();
-        mo = date.getUTCMonth()+1;
+        mo = date.getUTCMonth();
         dy = date.getUTCDate();
         hr = date.getUTCHours();
         mn = date.getUTCMinutes();
-        timestamp = [yr, mo, dy, hr, mn];
+        var d = [yr, mo, dy, hr, mn];
+        var timestamp = JSON.parse(d);
 
         //Track visit
         db.get('visits')
