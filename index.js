@@ -1,9 +1,10 @@
 const bowser = require('bowser');
 const isbot = require('isbot');
 
-exports.trackVisit = function() {
+@param header
 
-  var header = req.headers;
+exports.trackVisit = function(header) {
+
   var dnt = header['dnt'];
   var ua = header['user-agent'];
   var bot = isbot(ua);
