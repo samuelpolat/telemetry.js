@@ -1,7 +1,9 @@
+/** @param header The postal code */
+
 const bowser = require('bowser');
 const isbot = require('isbot');
 
-exports.trackVisit = function(header) {
+exports.trackVisit = function (header) {
 
   var dnt = header['dnt'];
   var ua = header['user-agent'];
@@ -30,4 +32,4 @@ exports.trackVisit = function(header) {
 
   }
 
-}
+};
