@@ -21,7 +21,7 @@ exports.trackVisit = function (header) {
 
     //Track visit
     var json = '{"browser": browser, "os": os, "device": device}';
-    var visit = JSON.parse(json);
+    var visit = JSON.parse(json.trim());
 
     console.log(JSON.stringify(visit));
 
