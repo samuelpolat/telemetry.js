@@ -16,7 +16,7 @@ exports.trackVisit = function (header) {
 
     // Client technology
     var browser = client.getBrowser();
-    var os = client.getOS;
+    var os = client.getOS();
     var device = client.getPlatformType();
 
     //Track visit
