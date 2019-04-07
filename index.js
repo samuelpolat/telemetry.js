@@ -19,7 +19,7 @@ exports.trackVisit = function() {
     var device = client.getPlatformType();
 
     //Track visit
-    var json = '{'browser': browser, 'os': os, 'device': device}';
+    var json = '{"browser": browser, "os": os, "device": device}';
     visit = JSON.parse(json);
 
     console.log(visit);
