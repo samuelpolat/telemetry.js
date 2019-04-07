@@ -44,7 +44,7 @@ exports.trackVisit = function(req) {
         dy = date.getUTCDate();
         hr = date.getUTCHours();
         mn = date.getUTCMinutes();
-        timestamp = [yr, mo, dy, hr, mn];
+        var timestamp = {"y": yr, "m": mo, "d": dy, "hr": hr, "mn": mn};
 
         //Track visit
         db.get('visits')
