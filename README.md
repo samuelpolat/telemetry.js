@@ -40,6 +40,7 @@ Telemetry then reads the client user agent, including *browser*, *operating syst
 
 For every request, Telemetry creates a visit with a lot of useful information.
 
+- **traffic source**  - path and referer
 - **technology**  - browser, OS, and device type
 - **location**  - country, region, and city
 
