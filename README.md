@@ -1,3 +1,4 @@
+
 # Telemetry.js
 >🎲 Privacy-friendly visit tracking for Node.js
 
@@ -56,13 +57,7 @@ This is how a visit usually looks like in your `visits.json` file:
       "country": "US",
       "region": "CA",
       "city": "San Francisco",
-      "timestamp": {
-        "year": 2019,
-        "month": 4,
-        "day": 7,
-        "hr": 20,
-        "min": 44
-      }
+      "timestamp": 1554076800
     }
 
 ### Privacy Fundamentals
