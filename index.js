@@ -23,6 +23,10 @@ exports.trackVisit = function(req) {
 
         var client = bowser.getParser(ua);
 
+        //Traffic source
+        var path = req.route['path'];
+        var referer = header['referer'];
+
         // Client technology
         var browser = client.getBrowser();
         var os = client.getOS();
@@ -40,6 +44,8 @@ exports.trackVisit = function(req) {
         //Track visit
         db.get('visits')
             .push({
+                path: path,
+                referer: referer,
                 browser: browser,
                 os: os,
                 device: device,
