@@ -7,10 +7,7 @@ const FileSync = require('lowdb/adapters/FileSync');
 const adapter = new FileSync('visits.json')
 const db = low(adapter)
 
-db.defaults({
-        visits: [],
-        count: 0
-    })
+db.defaults({ visits: [] })
     .write()
 
 exports.trackVisit = function(req) {
@@ -39,7 +36,7 @@ exports.trackVisit = function(req) {
 
         //Create timestamp
         var timestamp = Math.floor(Date.now() / 1000);
-        
+
         //Track visit
         db.get('visits')
             .push({
@@ -51,9 +48,6 @@ exports.trackVisit = function(req) {
                 city: city,
                 timestamp: timestamp
             })
-            .write()
-
-        db.update('count', n => n + 1)
             .write()
 
     } else {
