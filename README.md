@@ -1,4 +1,5 @@
 
+
 # Telemetry.js
 >🎲 Privacy-friendly visit tracking for Node.js
 
@@ -45,20 +46,22 @@ For every request, Telemetry creates a visit with a lot of useful information.
 This is how a visit usually looks like in your `visits.json` file:
 
     {
-      "browser": {
-        "name": "Firefox",
-        "version": "59.0"
-      },
-      "os": {
-        "name": "macOS",
-        "version": "10.13"
-      },
-      "device": "desktop",
-      "country": "US",
-      "region": "CA",
-      "city": "San Francisco",
-      "timestamp": 1554076800
-    }
+          "path": "/products",
+          "referer": "https://bitly.com/",
+          "browser": {
+            "name": "Safari",
+            "version": "12.0.2"
+          },
+          "os": {
+            "name": "macOS",
+            "version": "10.14.2"
+          },
+          "device": "desktop",
+          "country": "US",
+          "region": "CA",
+          "city": "San Francisco",
+          "timestamp": 1554076800
+        }
 
 ### Privacy Fundamentals
 
