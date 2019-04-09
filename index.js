@@ -19,7 +19,7 @@ exports.trackVisit = function(req) {
     var bot = isbot(ua);
 
     // Check DNT-header and detect bots
-    if (dnt != '1' && bot != true) {
+    if (dnt != '1' && bot != true & req.originalUrl != '/favicon.ico') {
 
         var client = bowser.getParser(ua);
 
