@@ -24,7 +24,7 @@ exports.trackVisit = function(req) {
         var client = bowser.getParser(ua);
 
         //Traffic source
-        var path = req.url;
+        var path = req.originalUrl;
         var referer = header['referer'];
 
         // Client technology
