@@ -5,11 +5,11 @@
 
 [![NPM](https://nodei.co/npm/telemetry.js.png)](https://nodei.co/npm/telemetry.js/)
 
-![GitHub file size in bytes](https://img.shields.io/github/size/samuelpolat/telemetry.js/index.js.svg) ![npm](https://img.shields.io/npm/v/telemetry.js.svg)  ![npm](https://img.shields.io/npm/dt/telemetry.js.svg) ![GitHub](https://img.shields.io/github/license/samuelpolat/telemetry.js.svg)
+![npm bundle size](https://img.shields.io/bundlephobia/min/telemetry.js.svg) ![npm](https://img.shields.io/npm/v/telemetry.js.svg)  ![npm](https://img.shields.io/npm/dt/telemetry.js.svg) ![GitHub](https://img.shields.io/github/license/samuelpolat/telemetry.js.svg)
 
 ## Highlights
 
- - **<4kb** visit tracking library without database
+ - **<1kb** visit tracking library without database
  - 100% server-side
  - 100% open-source
  - MongoDB support
