@@ -77,7 +77,7 @@ module.exports = function (options) {
 
     saveMongo: function (data) {
       var mongoose = require('mongoose')
-      // var Object = require('./lib/user_model.js')
+      var Object = require('./lib/user_model.js')
 
       mongoose.connect(connection, { useNewUrlParser: true })
 
