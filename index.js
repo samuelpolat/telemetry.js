@@ -91,7 +91,7 @@ module.exports = function(options) {
       db.on('error', console.error.bind(console, 'connection error:'));
       db.once('open', function() {});
 
-      var visit = new mongoose.Model({
+      var visitSchema = new mongoose.Schema({
         path: String,
         referer: String,
         browser: [{ name: String, version: String }],
@@ -103,7 +103,8 @@ module.exports = function(options) {
         timestamp: Number
       });
 
-      visit.create({
+      var object = mongoose.model('visit', visitSchema);
+      var visit = new object({
         path: data[0],
         referer: data[1],
         browser: data[2],
@@ -113,8 +114,10 @@ module.exports = function(options) {
         region: data[6],
         city: data[7],
         timestamp: data[8]
-      }, function (err, awesome_instance) {
-        if (err) return handleError(err);
+      });
+
+      visit.save(function (err, fluffy) {
+        if (err) return console.error(err);
       });
 
     }
