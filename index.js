@@ -97,9 +97,7 @@ module.exports = function (options) {
         timestamp: data[8]
       }
 
-      visit.save(function (err, fluffy) {
-        if (err) return console.error(err)
-      })
+      visit.save()
     }
 
   }
