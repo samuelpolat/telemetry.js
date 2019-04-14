@@ -75,7 +75,7 @@ Many web browsers give users the option to signal their tracking preferences wit
 
 ## Using MongoDB
 
-Using the `visits.json` to keep track of visits might be enough for small-scale websites and applications. A single log usually takes 300B of storage and thus the log can grow very quickly, if you run an application with heavy traffic.
+Using the `visits.json` to keep track of visits might be enough for small-scale websites and applications. A single record usually takes 300B of storage and thus the log can grow very quickly, if you run an application with heavy traffic.
 
 Telemetry offers the options to save tracked visits to a MongoDB database instead of the `visits.json` file. This option is much more scalable and easy to set up.
 
