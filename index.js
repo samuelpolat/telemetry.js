@@ -37,8 +37,11 @@ module.exports = function(options) {
           var region = geo['region'];
           var city = geo['city'];
 
+          //Create timestamp
+          var timestamp = Math.floor(Date.now() / 1000);
+
           //Create visit array
-          var data = [path, referer, browser, os, device, country, region, city];
+          var data = [path, referer, browser, os, device, country, region, city, timestamp];
 
           //Track visit
           if (dbEnabled == true && connection.length > 0) {
@@ -63,9 +66,6 @@ module.exports = function(options) {
       db.defaults({ visits: [] })
           .write()
 
-      //Create timestamp
-      var timestamp = Math.floor(Date.now() / 1000);
-
       db.get('visits')
           .push({
               path: data[0],
@@ -76,7 +76,7 @@ module.exports = function(options) {
               country: data[5],
               region: data[6],
               city: data[7],
-              timestamp: timestamp
+              timestamp: data[8]
           })
           .write()
 
@@ -112,7 +112,8 @@ module.exports = function(options) {
           device: data[4],
           country: data[5],
           region: data[6],
-          city: data[7]
+          city: data[7],
+          timestamp: data[8]
       });
 
       visit.save(function (err, visit) {
