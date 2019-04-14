@@ -93,7 +93,6 @@ module.exports = function(options) {
       db.on('error', console.error.bind(console, 'connection error:'));
       db.once('open', function() {});
 
-      var object = mongoose.model('visit', visitSchema);
       var visit = new object({
         path: data[0],
         referer: data[1],
