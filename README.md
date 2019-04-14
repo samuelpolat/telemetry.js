@@ -9,9 +9,10 @@
 
 ## Highlights
 
- - **<2kb** visit tracking library without database
+ - **<4kb** visit tracking library without database
  - 100% server-side
  - 100% open-source
+ - MongoDB support
  - Detects & ignores bots
  - Privacy-friendly at its core
  - GDPR-compliant
@@ -70,10 +71,25 @@ Telemetry ***does not collect any personal information*** and thus it does not s
 
 Many web browsers give users the option to signal their tracking preferences with the [Do Not Track](https://www.eff.org/issues/do-not-track) request header. Operators are not obliged to comply with that request, however Telemetry complies with DNT-requests and ignores those visitors.
 
+## Using MongoDB
+
+Using the `visits.json` to keep track of visits might be enough for small-scale websites and applications. A single log usually takes 300B of storage and thus the log can grow very quickly, if you run an application with heavy traffic.
+
+Telemetry offers the options to save tracked visits to a MongoDB database instead of the `visits.json` file. This option is much more scalable and easy to set up.
+
+Initialize Telemetry:
+
+    var telemetry = require('telemetry.js');
+    telemetry = telemetry({enableMongo: false, connection: 'mongodb://user:password@host:port'});
+
+You can track visits as usual with:
+
+    telemetry.trackVisit(req);
+
+
 ## What's Next?
 
- - Visual dashboard
- - Track referrers
- - Event tracking
- - Minimize data footprint
- - Alternative storage options
+- [x] Alternative Storage
+- [x] Track referrers  
+- [ ] Visual dashboard
+- [ ] Event tracking
