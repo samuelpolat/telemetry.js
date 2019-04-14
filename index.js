@@ -4,8 +4,8 @@ const geoip = require('geoip-lite');
 
 exports.useMongo = function(enable, connection) {
 
-  return dbEnabled = enable;
-  return connection = connection;
+  global.dbEnabled = enable;
+  global.connection = connection;
 
 };
 
