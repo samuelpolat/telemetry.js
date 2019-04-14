@@ -85,7 +85,8 @@ module.exports = function (options) {
       db.on('error', console.error.bind(console, 'connection error:'))
       db.once('open', function () {})
 
-      var visit = {
+      /* eslint-disable */
+      var visit = new Object({
         path: data[0],
         referer: data[1],
         browser: data[2],
@@ -95,7 +96,8 @@ module.exports = function (options) {
         region: data[6],
         city: data[7],
         timestamp: data[8]
-      }
+      })
+      /* eslint-disable */
 
       visit.save()
     }
