@@ -89,9 +89,7 @@ module.exports = function(options) {
 
       var db = mongoose.connection;
       db.on('error', console.error.bind(console, 'connection error:'));
-      db.once('open', function() {
-        // we're connected!
-      });
+      db.once('open', function() {});
 
       var object = mongoose.model('visit', {
           path: String,
