@@ -4,8 +4,8 @@ const geoip = require('geoip-lite');
 
 exports.useMongo = function(enable, connection) {
 
-  this.dbEnabled = enable;
-  this.connection = connection;
+  return dbEnabled = enable;
+  return connection = connection;
 
 };
 
@@ -41,7 +41,6 @@ exports.trackVisit = function(req) {
       var data = [path, referer, browser, os, device, country, region, city];
 
       //Track visit
-      useMongo();
       if (dbEnabled == true && connection.length > 0) {
         saveMongo(data);
       } else {
