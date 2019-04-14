@@ -99,7 +99,8 @@ module.exports = function(options) {
           device: String,
           country: String,
           region: String,
-          city: String
+          city: String,
+          timestamp: Number
       });
 
       var visit = new object({
