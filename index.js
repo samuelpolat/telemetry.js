@@ -102,8 +102,6 @@ module.exports = function(options) {
           country: String,
           region: String,
           city: String
-      }, {
-        timestamps: true
       });
 
       var visit = new object({
