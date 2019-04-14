@@ -49,7 +49,7 @@ module.exports = function(options) {
 
         } else {}
 
-    };
+    }
 
     //Storage options:
 
@@ -80,7 +80,7 @@ module.exports = function(options) {
           })
           .write()
 
-    };
+    }
 
     saveMongo: function(data) {
 
@@ -121,7 +121,7 @@ module.exports = function(options) {
         if (err) return console.error(err);
       });
 
-    };
+    }
 
   };
 
