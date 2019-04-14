@@ -41,6 +41,7 @@ exports.trackVisit = function(req) {
       var data = [path, referer, browser, os, device, country, region, city];
 
       //Track visit
+      useMongo();
       if (dbEnabled == true && connection.length > 0) {
         saveMongo(data);
       } else {
