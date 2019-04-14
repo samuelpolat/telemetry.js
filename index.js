@@ -42,9 +42,9 @@ module.exports = function(options) {
 
           //Track visit
           if (dbEnabled == true && connection.length > 0) {
-            saveMongo(data);
+            module.exports.saveMongo(data);
           } else {
-            saveJSON(data);
+            module.exports.saveJSON(data);
           };
 
         } else {}
