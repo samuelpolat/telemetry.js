@@ -9,6 +9,48 @@ module.exports = function(options) {
 
   return {
 
+    trackVisit: function(req) {
+
+      var header = req.headers;
+      var dnt = header['dnt'];
+      var ua = header['user-agent'];
+      var ip = header['x-forwarded-for'] ? header['x-forwarded-for'].split(',')[0] : req.connection.remoteAddress;
+      var bot = isbot(ua);
+
+      // Check DNT-header and detect bots
+      if (dnt != '1' && bot != true & req.originalUrl != '/favicon.ico') {
+
+          var client = bowser.getParser(ua);
+
+          //Traffic source
+          var path = req.originalUrl;
+          var referer = header['referer'];
+
+          // Client technology
+          var browser = client.getBrowser();
+          var os = client.getOS();
+          var device = client.getPlatformType();
+
+          //Client location
+          var geo = geoip.lookup(ip);
+          var country = geo['country'];
+          var region = geo['region'];
+          var city = geo['city'];
+
+          //Create visit array
+          var data = [path, referer, browser, os, device, country, region, city];
+
+          //Track visit
+          if (dbEnabled == true && connection.length > 0) {
+            this.saveMongo(data);
+          } else {
+            this.saveJSON(data);
+          };
+
+        } else {}
+
+    },
+
     //Storage options:
 
     saveJSON: function(data) {
@@ -79,51 +121,8 @@ module.exports = function(options) {
         if (err) return console.error(err);
       });
 
-    },
-
-    // Track method
-
-    trackVisit: function(req) {
-
-      var header = req.headers;
-      var dnt = header['dnt'];
-      var ua = header['user-agent'];
-      var ip = header['x-forwarded-for'] ? header['x-forwarded-for'].split(',')[0] : req.connection.remoteAddress;
-      var bot = isbot(ua);
-
-      // Check DNT-header and detect bots
-      if (dnt != '1' && bot != true & req.originalUrl != '/favicon.ico') {
-
-          var client = bowser.getParser(ua);
-
-          //Traffic source
-          var path = req.originalUrl;
-          var referer = header['referer'];
-
-          // Client technology
-          var browser = client.getBrowser();
-          var os = client.getOS();
-          var device = client.getPlatformType();
-
-          //Client location
-          var geo = geoip.lookup(ip);
-          var country = geo['country'];
-          var region = geo['region'];
-          var city = geo['city'];
-
-          //Create visit array
-          var data = [path, referer, browser, os, device, country, region, city];
-
-          //Track visit
-          if (dbEnabled == true && connection.length > 0) {
-            saveMongo(data);
-          } else {
-            saveJSON(data);
-          };
-
-        } else {}
-
     }
+
   };
 
 };
