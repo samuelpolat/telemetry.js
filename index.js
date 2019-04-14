@@ -85,23 +85,13 @@ module.exports = function(options) {
     saveMongo: function(data) {
 
       var mongoose = require('mongoose');
+      var object = require('./lib/user_model.js');
+
       mongoose.connect(connection, {useNewUrlParser: true});
 
       var db = mongoose.connection;
       db.on('error', console.error.bind(console, 'connection error:'));
       db.once('open', function() {});
-
-      var visitSchema = new mongoose.Schema({
-        path: String,
-        referer: String,
-        browser: [{ name: String, version: String }],
-        os: [{ name: String, version: String }],
-        device: String,
-        country: String,
-        region: String,
-        city: String,
-        timestamp: Number
-      });
 
       var object = mongoose.model('visit', visitSchema);
       var visit = new object({
