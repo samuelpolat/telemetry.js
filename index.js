@@ -91,32 +91,30 @@ module.exports = function(options) {
       db.on('error', console.error.bind(console, 'connection error:'));
       db.once('open', function() {});
 
-      var object = mongoose.model('visit', {
-          path: String,
-          referer: String,
-          browser: [{ name: String, version: String }],
-          os: [{ name: String, version: String }],
-          device: String,
-          country: String,
-          region: String,
-          city: String,
-          timestamp: Number
+      var visit = new mongoose.Model({
+        path: String,
+        referer: String,
+        browser: [{ name: String, version: String }],
+        os: [{ name: String, version: String }],
+        device: String,
+        country: String,
+        region: String,
+        city: String,
+        timestamp: Number
       });
 
-      var visit = new object({
-          path: data[0],
-          referer: data[1],
-          browser: data[2],
-          os: data[3],
-          device: data[4],
-          country: data[5],
-          region: data[6],
-          city: data[7],
-          timestamp: data[8]
-      });
-
-      visit.save(function (err, visit) {
-        if (err) return console.error(err);
+      visit.create({
+        path: data[0],
+        referer: data[1],
+        browser: data[2],
+        os: data[3],
+        device: data[4],
+        country: data[5],
+        region: data[6],
+        city: data[7],
+        timestamp: data[8]
+      }, function (err, awesome_instance) {
+        if (err) return handleError(err);
       });
 
     }
