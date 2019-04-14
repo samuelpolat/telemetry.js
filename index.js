@@ -2,10 +2,10 @@ const bowser = require('bowser');
 const isbot = require('isbot');
 const geoip = require('geoip-lite');
 
-exports.useMongo = function(options) {
+exports.useMongo = function(enable, connection) {
 
-  this.dbEnabled = options.enable;
-  this.connection = options.connection;
+  this.dbEnabled = enable;
+  this.connection = connection;
 
 };
 
