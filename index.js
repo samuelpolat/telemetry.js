@@ -1,7 +1,6 @@
 const bowser = require('bowser')
 const isbot = require('isbot')
 const geoip = require('geoip-lite')
-const redactor = require('redact-pii')({ replace: '[REDACTED]' })
 
 module.exports = function (options) {
   var dbEnabled = options.enableMongo
@@ -21,18 +20,7 @@ module.exports = function (options) {
         var client = bowser.getParser(ua)
 
         // Traffic source
-        /* var path = redactor.redact(req.originalUrl)
-        var referer = redactor.redact(header['referer']) */
-
         var path = req.originalUrl
-        var redactedPath = redactor.redact(path).then(res => {
-          return redactedPath
-          // Hi NAME, Please give me a call at PHONE_NUMBER
-        });
-        redactor.redact(req.originalUrl)
-        console.log(path)
-        console.log(redactedPath)
-
         var referer = header['referer']
 
         // Client technology
