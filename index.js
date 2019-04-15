@@ -30,9 +30,9 @@ module.exports = function (options) {
 
         // Client location
         var geo = geoip.lookup(ip)
-        var country = geo['country']
-        var region = geo['region']
-        var city = geo['city']
+        var country = geo ? geo['country'] : ''
+        var region = geo ? geo['region'] : ''
+        var city = geo ? geo['city'] : ''
 
         // Create timestamp
         var timestamp = Math.floor(Date.now() / 1000)
@@ -41,8 +41,12 @@ module.exports = function (options) {
         var data = [path, referer, browser, os, device, country, region, city, timestamp]
 
         // Track visit
-        if (dbEnabled === true && connection.length > 0) {
-          this.saveMongo(data)
+        if (dbEnabled === true) {
+          if (connection.length > 0) {
+            this.saveMongo(data)
+          } else {
+            throw new Error('You cannot set enableMongo to true unless you pass a database connection string.')
+          }
         } else {
           this.saveJSON(data)
         };
