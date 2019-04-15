@@ -21,8 +21,13 @@ module.exports = function (options) {
         var client = bowser.getParser(ua)
 
         // Traffic source
-        var path = redactor.redact(req.originalUrl)
-        var referer = redactor.redact(header['referer'])
+        /* var path = redactor.redact(req.originalUrl)
+        var referer = redactor.redact(header['referer']) */
+
+        var path = req.originalUrl
+        var redactedPath = redactor.redact(req.originalUrl)
+        console.log(path)
+        console.log(redactedPath)
 
         // Client technology
         var browser = client.getBrowser()
