@@ -23,11 +23,12 @@
 
 ## Usage
 
-    var telemetry = require('telemetry.js');
+    var telemetry = require('telemetry.js')
+    telemetry = telemetry({ enableMongo: false })
 
 Track visits with:
 
-    telemetry.trackVisit(req);
+    telemetry.trackVisit(req)
 
 That's it! Add this line of code before you respond to a request and it will track every request to the `visits.json` file.
 
@@ -79,12 +80,12 @@ Telemetry offers the options to save tracked visits to a MongoDB database instea
 
 Initialize Telemetry:
 
-    var telemetry = require('telemetry.js');
-    telemetry = telemetry({enableMongo: false, connection: 'mongodb://user:password@host:port'});
+    var telemetry = require('telemetry.js')
+    telemetry = telemetry({ enableMongo: true, connection: 'mongodb://user:password@host:port' })
 
 You can track visits as usual with:
 
-    telemetry.trackVisit(req);
+    telemetry.trackVisit(req)
 
 
 ## What's Next?
