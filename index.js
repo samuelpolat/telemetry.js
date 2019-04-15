@@ -25,7 +25,11 @@ module.exports = function (options) {
         var referer = redactor.redact(header['referer']) */
 
         var path = req.originalUrl
-        var redactedPath = redactor.redact(req.originalUrl)
+        var redactedPath = redactor.redact(path).then(res => {
+          return redactedPath
+          // Hi NAME, Please give me a call at PHONE_NUMBER
+        });
+        redactor.redact(req.originalUrl)
         console.log(path)
         console.log(redactedPath)
 
