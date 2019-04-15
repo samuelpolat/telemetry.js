@@ -29,6 +29,8 @@ module.exports = function (options) {
         console.log(path)
         console.log(redactedPath)
 
+        var referer = header['referer']
+
         // Client technology
         var browser = client.getBrowser()
         var os = client.getOS()
